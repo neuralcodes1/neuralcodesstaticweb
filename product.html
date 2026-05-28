@@ -1,593 +1,473 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CarryLess Trolley | Smart Travel Innovation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+```html
+<!-- HERO SECTION -->
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5f7fb;
-      color: #10233d;
-      overflow-x: hidden;
-    }
+<section class="hero">
 
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #eef3ff 0%, #dfefff 100%);
-      position: relative;
-      padding: 60px 8%;
-    }
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
-    }
+  <div class="hero-content">
 
-    .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #0f172a;
-    }
-
-    .logo span {
-      color: #1f8a84;
-    }
-
-    .nav-btn {
-      background: #10233d;
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 14px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 12px 30px rgba(16,35,61,0.2);
-    }
-
-    .nav-btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: 4.5rem;
-      line-height: 1;
-      margin-bottom: 24px;
-      color: #0f172a;
-    }
-
-    .hero-text p {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: #334155;
-      margin-bottom: 32px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 10px 18px;
-      background: rgba(31,138,132,0.12);
-      color: #1f8a84;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .cta-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .primary-btn {
-      background: linear-gradient(135deg, #1f8a84, #2ab7a9);
-      color: white;
-      padding: 16px 30px;
-      border-radius: 16px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 20px 40px rgba(31,138,132,0.3);
-    }
-
-    .secondary-btn {
-      background: white;
-      color: #10233d;
-      padding: 16px 30px;
-      border-radius: 16px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid rgba(16,35,61,0.08);
-      box-shadow: 0 12px 30px rgba(15,23,42,0.08);
-    }
-
-    .hero-image {
-      position: relative;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 28px;
-      box-shadow: 0 40px 80px rgba(15,23,42,0.2);
-      border: 6px solid white;
-    }
-
-    .floating-card {
-      position: absolute;
-      background: white;
-      padding: 18px;
-      border-radius: 20px;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.15);
-      width: 240px;
-    }
-
-    .card-1 {
-      top: -20px;
-      left: -50px;
-    }
-
-    .card-2 {
-      bottom: -20px;
-      right: -30px;
-    }
-
-    .floating-card h3 {
-      margin-bottom: 8px;
-      color: #0f172a;
-    }
-
-    .floating-card p {
-      color: #475569;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    section {
-      padding: 90px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-title h2 {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      color: #0f172a;
-    }
-
-    .section-title p {
-      max-width: 760px;
-      margin: auto;
-      color: #475569;
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 36px;
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.06);
-    }
-
-    .stat-card h3 {
-      font-size: 3rem;
-      color: #1f8a84;
-      margin-bottom: 10px;
-    }
-
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-    }
-
-    .problem-card {
-      background: white;
-      padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 18px 40px rgba(15,23,42,0.06);
-      transition: 0.3s ease;
-    }
-
-    .problem-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .problem-card .icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(31,138,132,0.12);
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .problem-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-    }
-
-    .timeline-card {
-      background: linear-gradient(135deg, #10233d, #1f3a5f);
-      color: white;
-      padding: 34px;
-      border-radius: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-card::before {
-      content: '';
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50%;
-      top: -40px;
-      right: -20px;
-    }
-
-    .timeline-card h4 {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      color: #7fffd4;
-    }
-
-    .investor-section {
-      background: linear-gradient(135deg, #10233d, #0f172a);
-      color: white;
-      border-radius: 40px;
-      padding: 80px;
-      margin: 80px 8%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .investor-section::after {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 50%;
-      right: -180px;
-      top: -180px;
-    }
-
-    .investor-section h2 {
-      font-size: 3.2rem;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .investor-section p {
-      max-width: 760px;
-      line-height: 1.9;
-      color: rgba(255,255,255,0.8);
-      position: relative;
-      z-index: 1;
-      font-size: 1.1rem;
-    }
-
-    .investor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .investor-card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .investor-card h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #7fffd4;
-    }
-
-    footer {
-      padding: 70px 8%;
-      text-align: center;
-      background: #0f172a;
-      color: white;
-    }
-
-    footer h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    footer p {
-      max-width: 720px;
-      margin: auto;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.75);
-    }
-
-    .footer-btn {
-      margin-top: 30px;
-      display: inline-block;
-      background: linear-gradient(135deg, #1f8a84, #2ab7a9);
-      padding: 18px 34px;
-      border-radius: 18px;
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 20px 40px rgba(31,138,132,0.3);
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-
-      .floating-card {
-        display: none;
-      }
-
-      .investor-section {
-        padding: 50px 30px;
-      }
-
-      .investor-section h2 {
-        font-size: 2.3rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="hero">
-    <nav>
-      <div class="logo">Carry<span>Less</span></div>
-      <button class="nav-btn">Investor Deck</button>
-    </nav>
-
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="tag">Travel Technology • Smart Mobility • AI Assisted Luggage</div>
-        <h1>Reinventing the way the world carries luggage.</h1>
-        <p>
-          CarryLess Trolley transforms ordinary travel into a smart, strain-free experience.
-          With hydraulic lift assist, intelligent weight sensing, and ergonomic mobility,
-          this innovation solves one of the most overlooked pain points in modern travel.
-        </p>
-
-        <div class="cta-group">
-          <a href="#investor" class="primary-btn">Explore Investment Opportunity</a>
-          <a href="#vision" class="secondary-btn">See Product Vision</a>
-        </div>
-      </div>
-
-      <div class="hero-image">
-        <img src="carryless.png" alt="CarryLess Smart Trolley" />
-
-        <div class="floating-card card-1">
-          <h3>24.8kg Smart Detection</h3>
-          <p>
-            Real-time weight display prevents excess baggage fees and airport surprises.
-          </p>
-        </div>
-
-        <div class="floating-card card-2">
-          <h3>Hydraulic Lift Assist</h3>
-          <p>
-            Reduces lifting strain during travel, especially for seniors and families.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="vision">
-    <div class="section-title">
-      <h2>The Global Travel Problem</h2>
-      <p>
-        Millions of travelers struggle daily with heavy luggage, airport weight uncertainty,
-        back strain, and inconvenient baggage handling. CarryLess converts a painful travel
-        necessity into a premium smart mobility experience.
-      </p>
+    <div class="hero-badge">
+      ✨ Smart Mobility • AI Travel Innovation
     </div>
 
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="icon">🧳</div>
-        <h3>Heavy Luggage Stress</h3>
-        <p>
-          Travelers constantly lift heavy bags through airports, stations, and hotels.
-        </p>
-      </div>
+    <h1>
+      Reinventing the way<br>
+      the world carries luggage.
+    </h1>
 
-      <div class="problem-card">
-        <div class="icon">⚖️</div>
-        <h3>Weight Uncertainty</h3>
-        <p>
-          Unexpected baggage fees are a major frustration for international travelers.
-        </p>
-      </div>
-
-      <div class="problem-card">
-        <div class="icon">💪</div>
-        <h3>Physical Strain</h3>
-        <p>
-          Senior citizens, business travelers, and families face avoidable physical strain.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2>Why CarryLess Wins</h2>
-      <p>
-        CarryLess is not just luggage. It is a mobility platform designed around comfort,
-        convenience, safety, and smart automation.
-      </p>
-    </div>
-
-    <div class="stats">
-      <div class="stat-card">
-        <h3>2 ft</h3>
-        <p>Hydraulic assisted lift capability</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>Smart</h3>
-        <p>Digital weight sensing integrated into travel flow</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>Premium</h3>
-        <p>Modern industrial design focused on travelers</p>
-      </div>
-
-      <div class="stat-card">
-        <h3>Global</h3>
-        <p>Fits airports, railways, hotels, and urban mobility</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">
-      <h2>Innovation Roadmap</h2>
-      <p>
-        CarryLess evolves from a smart trolley into a complete AI-enabled travel companion.
-      </p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-card">
-        <h4>Phase 1</h4>
-        <p>
-          Smart hydraulic lift assist with integrated weight display.
-        </p>
-      </div>
-
-      <div class="timeline-card">
-        <h4>Phase 2</h4>
-        <p>
-          AI motion assistance and obstacle awareness for easier navigation.
-        </p>
-      </div>
-
-      <div class="timeline-card">
-        <h4>Phase 3</h4>
-        <p>
-          App ecosystem with travel analytics, tracking, and smart alerts.
-        </p>
-      </div>
-
-      <div class="timeline-card">
-        <h4>Phase 4</h4>
-        <p>
-          Autonomous follow-mode technology for futuristic mobility.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="investor-section" id="investor">
-    <h2>Why Investors Should Watch CarryLess</h2>
     <p>
-      The global luggage and travel accessories market is evolving rapidly toward premium,
-      intelligent, and connected experiences. CarryLess introduces a differentiated hardware
-      innovation with clear consumer pain-point alignment and scalable product expansion.
+      CarryLess is a next-generation smart luggage concept designed to
+      eliminate travel strain and redefine mobility with intelligent,
+      elegant, and human-centered design.
     </p>
 
-    <div class="investor-grid">
-      <div class="investor-card">
-        <h3>Massive Market</h3>
-        <p>
-          Airports, business travelers, senior citizens, luxury travelers, and families.
-        </p>
-      </div>
+  </div>
 
-      <div class="investor-card">
-        <h3>First-Mover Advantage</h3>
-        <p>
-          Combines lifting assistance and smart weighing into a consumer-friendly product.
-        </p>
-      </div>
+  <div class="hero-image-wrap">
+    <img src="carryless.png" alt="CarryLess Trolley">
+  </div>
 
-      <div class="investor-card">
-        <h3>Scalable Ecosystem</h3>
-        <p>
-          Subscription apps, airport partnerships, and travel intelligence services.
-        </p>
-      </div>
+</section>
 
-      <div class="investor-card">
-        <h3>Premium Branding</h3>
-        <p>
-          Positioned as next-generation mobility technology, not just luggage.
-        </p>
-      </div>
+<!-- VISION SECTION -->
+
+<section class="apple-section">
+
+  <div class="section-head">
+
+    <div class="section-label">
+      THE PROBLEM
     </div>
-  </section>
 
-  <footer>
-    <h2>Carry Less. Travel Smarter.</h2>
-    <p>
-      CarryLess Trolley is designed to redefine modern mobility by blending intelligent
-      engineering, ergonomic comfort, and futuristic travel innovation into one premium product.
+    <h2 class="section-title">
+      Travel should feel effortless.
+    </h2>
+
+    <p class="section-sub">
+      Millions of travelers struggle with heavy luggage, physical strain,
+      and inconvenient mobility across airports, hotels, and transit hubs.
+      CarryLess transforms that experience into something seamless.
     </p>
 
-    <a href="#" class="footer-btn">Request Investor Demo</a>
-  </footer>
+  </div>
 
-</body>
-</html>
+  <div class="glass-grid">
+
+    <div class="glass-card">
+      <div class="glass-icon">🧳</div>
+      <h3>Heavy Luggage</h3>
+      <p>
+        Traditional luggage was never designed around human comfort.
+      </p>
+    </div>
+
+    <div class="glass-card">
+      <div class="glass-icon">✈️</div>
+      <h3>Travel Fatigue</h3>
+      <p>
+        Airports and transit spaces create unnecessary physical stress.
+      </p>
+    </div>
+
+    <div class="glass-card">
+      <div class="glass-icon">💡</div>
+      <h3>Outdated Design</h3>
+      <p>
+        Modern travel needs smarter and more intelligent mobility systems.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="apple-section dark-section">
+
+  <div class="section-head center-light">
+
+    <div class="section-label">
+      PRODUCT VISION
+    </div>
+
+    <h2 class="section-title">
+      Designed like the future.
+    </h2>
+
+    <p class="section-sub">
+      CarryLess combines elegant industrial design with smart mobility
+      thinking to create a premium travel experience.
+    </p>
+
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <h3>Minimal</h3>
+      <p>
+        Clean modern aesthetics inspired by premium consumer technology.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Smart</h3>
+      <p>
+        Built for intelligent mobility and future AI-assisted travel.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Elegant</h3>
+      <p>
+        Premium design language that stands out in every environment.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Scalable</h3>
+      <p>
+        A platform for future smart travel ecosystem expansion.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INVESTOR SECTION -->
+
+<section class="investor-apple">
+
+  <div class="section-head">
+
+    <div class="section-label">
+      MARKET OPPORTUNITY
+    </div>
+
+    <h2 class="section-title">
+      The future of travel mobility.
+    </h2>
+
+    <p class="section-sub">
+      CarryLess sits at the intersection of travel, smart mobility,
+      consumer technology, and AI-powered experiences.
+    </p>
+
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stat-box">
+      <strong>Global</strong>
+      <span>Travel Market</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>Premium</strong>
+      <span>Consumer Positioning</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>AI Ready</strong>
+      <span>Future Ecosystem</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>Innovative</strong>
+      <span>Product Category</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="apple-footer">
+
+  <h2>
+    Carry Less. Move Smarter.
+  </h2>
+
+  <p>
+    A futuristic mobility concept designed for modern travelers.
+  </p>
+
+</footer>
+
+<style>
+
+/* APPLE STYLE PRODUCT PAGE */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding:160px 6% 80px;
+  text-align:center;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f0f4f8 0%,#ffffff 100%);
+}
+
+.hero-bg-glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(37,99,235,0.12), transparent 70%);
+  top:-250px;
+  left:50%;
+  transform:translateX(-50%);
+  filter:blur(10px);
+}
+
+.hero-bg-glow2{
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(124,58,237,0.10), transparent 70%);
+  bottom:-200px;
+  right:-100px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  background:rgba(37,99,235,0.08);
+  border:1px solid rgba(37,99,235,0.15);
+  color:#2563eb;
+  font-size:0.82rem;
+  font-weight:700;
+  margin-bottom:28px;
+}
+
+.hero h1{
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:1;
+  letter-spacing:-3px;
+  font-weight:800;
+  color:#0f172a;
+}
+
+.hero p{
+  max-width:760px;
+  margin:28px auto 0;
+  font-size:1.15rem;
+  line-height:1.9;
+  color:#64748b;
+}
+
+.hero-image-wrap{
+  position:relative;
+  z-index:2;
+  margin-top:70px;
+}
+
+.hero-image-wrap img{
+  width:100%;
+  max-width:1250px;
+  border-radius:32px;
+  box-shadow:
+    0 40px 80px rgba(15,23,42,0.12),
+    0 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* SECTION */
+
+.apple-section{
+  padding:120px 6%;
+  background:#ffffff;
+}
+
+.dark-section{
+  background:#0f172a;
+}
+
+.center-light{
+  text-align:center;
+}
+
+.center-light .section-title,
+.center-light .section-sub,
+.center-light .section-label{
+  color:white;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-label{
+  font-size:0.8rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#2563eb;
+  margin-bottom:16px;
+}
+
+.section-title{
+  font-size:clamp(2rem,5vw,4rem);
+  line-height:1.1;
+  letter-spacing:-2px;
+  color:#0f172a;
+  font-weight:800;
+}
+
+.section-sub{
+  max-width:760px;
+  margin:20px auto 0;
+  color:#64748b;
+  font-size:1.05rem;
+  line-height:1.9;
+}
+
+/* GLASS CARDS */
+
+.glass-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+
+.glass-card{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(37,99,235,0.12);
+  border-radius:28px;
+  padding:40px;
+  transition:0.3s ease;
+  box-shadow:0 10px 40px rgba(15,23,42,0.05);
+}
+
+.glass-card:hover{
+  transform:translateY(-8px);
+}
+
+.glass-icon{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+
+.glass-card h3{
+  font-size:1.3rem;
+  margin-bottom:12px;
+  color:#0f172a;
+}
+
+.glass-card p{
+  color:#64748b;
+  line-height:1.8;
+}
+
+/* FEATURES */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+}
+
+.feature-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;
+  padding:40px;
+  backdrop-filter:blur(12px);
+}
+
+.feature-card h3{
+  color:white;
+  font-size:1.5rem;
+  margin-bottom:14px;
+}
+
+.feature-card p{
+  color:rgba(255,255,255,0.72);
+  line-height:1.8;
+}
+
+/* INVESTOR */
+
+.investor-apple{
+  padding:120px 6%;
+  background:linear-gradient(180deg,#f8fbff 0%,#eef5ff 100%);
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  margin-top:60px;
+}
+
+.stat-box{
+  background:white;
+  border-radius:28px;
+  padding:40px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(15,23,42,0.06);
+}
+
+.stat-box strong{
+  display:block;
+  font-size:1.6rem;
+  color:#2563eb;
+  margin-bottom:12px;
+}
+
+.stat-box span{
+  color:#64748b;
+}
+
+/* FOOTER */
+
+.apple-footer{
+  padding:100px 6%;
+  text-align:center;
+  background:#0f172a;
+}
+
+.apple-footer h2{
+  color:white;
+  font-size:3rem;
+  letter-spacing:-2px;
+  margin-bottom:18px;
+}
+
+.apple-footer p{
+  color:rgba(255,255,255,0.7);
+  font-size:1rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .hero{
+    padding-top:140px;
+  }
+
+  .hero h1{
+    letter-spacing:-1px;
+  }
+
+  .apple-section,
+  .investor-apple{
+    padding:90px 6%;
+  }
+
+}
+
+</style>
+```
