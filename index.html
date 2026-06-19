@@ -255,18 +255,68 @@
     .footer-links a:hover { color:var(--white); }
 
     /* ── RESPONSIVE ── */
-    @media(max-width:768px) {
+    /* @media(max-width:768px) {
       .nav-links { display:none; }
       .about-inner { grid-template-columns:1fr; gap:2.5rem; }
       .hero-stats { gap:2rem; }
       footer { flex-direction:column; text-align:center; }
-    }
+    } */
+    .menu-toggle {
+  display:none;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:1.8rem;
+  cursor:pointer;
+}
+
+@media(max-width:768px) {
+
+  nav {
+    flex-wrap:wrap;
+  }
+
+  .menu-toggle {
+    display:block;
+  }
+
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    width:100%;
+    text-align:center;
+    margin-top:1rem;
+    gap:1rem;
+  }
+
+  .nav-links.active {
+    display:flex;
+  }
+
+  .nav-cta {
+    display:none;
+  }
+
+  .about-inner {
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+
+  .hero-stats {
+    gap:2rem;
+  }
+
+  footer {
+    flex-direction:column;
+    text-align:center;
+  }
+}
   </style>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
+  <!-- <nav>
     <a class="nav-logo" href="#">
       <span style="font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:-0.3px;">Neural Codes</span>
     </a>
@@ -278,12 +328,33 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="nav-cta" href="#contact">Get Started</a>
-  </nav>
+  </nav> -->
+  <nav>
+  <a class="nav-logo" href="#">
+    <span style="font-size:1.15rem;font-weight:700;color:#fff;letter-spacing:-0.3px;">
+      Neural Codes
+    </span>
+  </a>
+
+  <button class="menu-toggle" aria-label="Toggle Menu">
+    ☰
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="product.html">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a class="nav-cta" href="#contact">Get Started</a>
+</nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="orb2"></div>
-    <div style="width:560px;height:140px;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 8px 32px rgba(37,99,235,0.12);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;">
+    <div style="width:min(560px,100%);height:140px;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 8px 32px rgba(37,99,235,0.12);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;">
       <img src="Logo.svg" alt="Neural Codes" style="width:560px;height:140px;object-fit:none;object-position:62% center;margin:-65px;" />
     </div>
     <h1>Where Business Meets<br/><span class="grad">Intelligence</span></h1>
@@ -444,6 +515,17 @@
       <a href="mailto:neuralcodes1@gmail.com">Email</a>
     </div>
   </footer>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    
+      const menuBtn = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+    
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+      });
+    
+    });
+  </script>
 </body>
 </html>
